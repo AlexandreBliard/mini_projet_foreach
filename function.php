@@ -2,22 +2,29 @@
 // UTILISER LA VARIABLE $song pour afficher les données
 
 // fonction pour afficher les tableaux
-function afficheCouplet($tab, $precis){
-    foreach ($tab[$precis] as $goon){
-        echo $goon ."<br>";
-    }echo "<br>";
+
+function afficheCouplet($tab){
+    foreach ($tab as $goon){
+       echo  $goon . '<br>';
+   }echo '<br>';
 }
+
 function afficheLigne($tab, $cle){
     echo $tab [$cle] ;
-    
 }
 
 /*===============code======================*/
 afficheLigne($song, 'title');
 echo "<br>";
 echo "<br>";
-afficheCouplet($song,'chorus');
-afficheCouplet($song,'first_verse');
-afficheCouplet($song,'chorus');
-afficheCouplet($song,'second_verse');
+foreach ($song ['data'] as $key => $test){
+    foreach ($test as $subtest){
+        echo $key." : ";
+    }
+    afficheCouplet($test);
+   /* afficheCouplet($test,'first_verse');
+    afficheCouplet($test,'chorus');
+    afficheCouplet($test,'second_verse');*/
+}
+
 afficheLigne($song, 'author');
