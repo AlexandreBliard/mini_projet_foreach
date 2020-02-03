@@ -3,28 +3,23 @@
 
 // fonction pour afficher les tableaux
 
-function afficheCouplet($tab){
-    foreach ($tab as $goon){
-       echo  $goon . '<br>';
-   }echo '<br>';
-}
 
-function afficheLigne($tab, $cle){
+function afficheLigne($tab, $cle) {
     echo $tab [$cle] ;
+}
+function afficheCoupletCle($tab) {
+    foreach ($tab as $cle => $test) {//premier passage et création des clés
+        foreach ($test as $key => $subtest){//lecture des clés premier tableau et créations clés deuxième tableau
+        echo $cle . ' : ' . 'ligne => ' . $key . " " . $subtest . '<br>';//affichage clés, deuxième clés et texte
+        }
+    echo "<br>";
+    }
 }
 
 /*===============code======================*/
 afficheLigne($song, 'title');
 echo "<br>";
 echo "<br>";
-foreach ($song ['data'] as $key => $test){
-    foreach ($test as $subtest){
-        echo $key." : ";
-    }
-    afficheCouplet($test);
-   /* afficheCouplet($test,'first_verse');
-    afficheCouplet($test,'chorus');
-    afficheCouplet($test,'second_verse');*/
-}
-
+afficheCoupletCle($song['data']);
 afficheLigne($song, 'author');
+
