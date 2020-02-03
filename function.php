@@ -9,17 +9,16 @@ function afficheLigne($tab, $cle) {//affichage de ligne
 
 
 function afficheRefrain($tab){//affichage du tableau
+    echo '<br>';
     foreach ($tab as $ligne){//parcours le tableau
         echo $ligne . '<br>';// affichage résultat et retour ligne
         }echo '<br>'; //retour ligne de fin de paragraphe
     }
 
 function afficheCouplet($tab){//affichage du tableau
-    foreach ($tab as $key => $ligne){// création de la variable
-        if ($key%2 ){//modulo pour faire comparaison pair ou impair
-            echo $ligne . '<br>';// affichage résultat et retour ligne
-        }
-    }echo '<br>'; //retour ligne de fin de paragraphe
+    foreach ($tab as $ligne){//parcours le tableau
+        echo $ligne . '<br>';// affichage résultat et retour ligne
+    }
 }
 
 
@@ -27,10 +26,15 @@ function afficheCouplet($tab){//affichage du tableau
 /*========================== CODE =============================*/
 afficheLigne($song, 'title');
 echo "<br>";
+afficheRefrain($song['data']['chorus']);//recherche du bon tableau
+afficheCouplet($song['data']['verse']['first_verse1']);
+afficheCouplet($song['data']['verse']['first_verse2']);
+afficheCouplet($song['data']['verse']['first_verse3']);
+afficheRefrain($song['data']['chorus']);
+afficheCouplet($song['data']['verse']['second_verse1']);
+afficheCouplet($song['data']['verse']['second_verse2']);
+afficheCouplet($song['data']['verse']['second_verse3']);
 echo "<br>";
-afficheRefrain($song['data']['chorus_1']);//recherche du bon tableau
-afficheCouplet($song['data']['first_verse']);
-afficheRefrain($song['data']['chorus_1']);
-afficheCouplet($song['data']['second_verse']);
 afficheLigne($song, 'author');
+
 
