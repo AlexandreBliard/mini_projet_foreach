@@ -1,25 +1,26 @@
 <?php
 // UTILISER LA VARIABLE $song pour afficher les données
 
-// fonction pour afficher les tableaux
+/*==================== FONCTION =========================*/
 
-
-function afficheLigne($tab, $cle) {
+function afficheLigne($tab, $cle) {//affichage de ligne
     echo $tab [$cle] ;
 }
-function afficheCoupletCle($tab) {
-    foreach ($tab as $cle => $test) {//premier passage et création des clés
-        foreach ($test as $key => $subtest){//lecture des clés premier tableau et créations clés deuxième tableau
-        echo $cle . ' : ' . 'ligne => ' . $key . " " . $subtest . '<br>';//affichage clés, deuxième clés et texte
-        }
-    echo "<br>";
-    }
+function afficheRefrain($tab){//affichage du tableau
+    foreach ($tab as $ligne){
+        echo $ligne . '<br>';
+    }echo "<br>";
 }
 
-/*===============code======================*/
+
+
+/*========================== CODE =============================*/
 afficheLigne($song, 'title');
 echo "<br>";
 echo "<br>";
-afficheCoupletCle($song['data']);
+afficheRefrain($song['data']['chorus']['chorus_1']);//recherche du bon tableau
+afficheRefrain($song['data']['verse']['first_verse']);
+afficheRefrain($song['data']['chorus']['chorus_1']);
+afficheRefrain($song['data']['verse']['second_verse']);
 afficheLigne($song, 'author');
 
